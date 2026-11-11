@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#14243a"><title>ATS Andurid – algne versioon</title>
+<link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+<style>
+:root{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;color-scheme:dark;--bg:#0c1524;--panel:#162439;--panel2:#1d3048;--line:#34465e;--txt:#eff5fc;--muted:#a9bbd0;--accent:#5db8ff;--green:#7be0ac;--yellow:#ffd27d;--red:#ff9292}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);padding:20px 14px 38px}.wrap{max-width:820px;margin:auto}header{margin-bottom:20px}h1{font-size:clamp(23px,5vw,30px);margin:0 0 5px}h2{font-size:17px;margin:0 0 15px}.sub{color:var(--muted);font-size:14px;line-height:1.5}main{display:grid;grid-template-columns:1fr 1fr;gap:15px}.card{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:18px;min-width:0}.full{grid-column:1/-1}.field{margin-bottom:15px}.field label{display:block;font-size:14px;font-weight:650;margin:0 0 7px}.field small{display:block;color:var(--muted);font-weight:400;margin-top:2px}.inputrow{display:flex;align-items:stretch;gap:8px}.inputrow input{min-width:0;width:100%;background:#0e1b2c;border:1px solid #536781;border-radius:9px;padding:11px 12px;color:white;font:inherit;font-size:18px}.unit{padding:12px;color:var(--muted);background:var(--panel2);border-radius:9px}.radio{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:7px 0 15px}.radio label{background:var(--panel2);padding:8px 12px;border-radius:9px;cursor:pointer;font-size:14px}.radio input{accent-color:var(--accent)}.value{font-size:27px;font-weight:760;font-variant-numeric:tabular-nums}.muted{color:var(--muted)}.mini{font-size:12px;color:var(--muted)}.metric{display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:1px solid var(--line);padding:9px 0}.metric:last-child{border:0}.result{border-radius:12px;background:#103a32;border:1px solid #286c59;padding:14px;margin:12px 0;color:#d8fff0}.result.warn{background:#493617;border-color:#87602a;color:#fff1d4}.result.error{background:#4b2329;border-color:#87505a;color:#ffdade}.result strong{font-size:19px}.result p{margin:6px 0 0;font-size:14px;line-height:1.5}.rules{display:grid;gap:8px}.rule{padding:10px 12px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:14px}.rule.active{border-color:#62d2a0;background:#173d35;color:#e8fff4}.rules.inactive{opacity:.43}.stage{margin:14px 0;padding:13px;border:1px solid var(--line);border-radius:12px;background:var(--panel2)}.stage strong{display:block;margin-bottom:5px}.stage p{margin:0;font-size:14px;line-height:1.5}.stage .flag{font-weight:750;color:var(--accent)}.rule .check{float:right;font-size:17px}.diagram{width:100%;height:auto;display:block;background:#102033;border:1px solid var(--line);border-radius:12px}svg text{font-family:system-ui, sans-serif;fill:#dbe7f5;font-size:13px}svg .dim{stroke:#a9bbd0;stroke-width:1.3;fill:none}svg .beam{fill:#718499;stroke:#9bb1c8;stroke-width:1}svg .wall{stroke:#cbd9e6;stroke-width:2}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}button{border:1px solid #527399;background:#25476b;color:white;padding:11px 14px;border-radius:10px;font:inherit;font-weight:650;cursor:pointer}button.primary{background:#1675ba;border-color:#298acb}.note{font-size:12px;color:var(--muted);line-height:1.6;margin:12px 0 0}#status{color:var(--green);font-size:13px;margin-top:8px;min-height:20px}@media(max-width:650px){main{grid-template-columns:1fr}.card{padding:16px}.value{font-size:24px}}@media print{:root{color-scheme:light;--bg:#fff;--panel:#fff;--panel2:#f2f5fa;--line:#c2c9d3;--txt:#000;--muted:#555}body{padding:0}.actions{display:none}.diagram{background:#f6f9fc}svg text{fill:#223!important}svg .dim{stroke:#334!important}header{margin-bottom:8px}}
+</style>
+</head>
+<body><div class="wrap">
+<header><h1>ATS · Andurite paigutuse kalkulaator</h1><div class="sub">Talade või eenduvate laeosadega ruumid · Algne arvutus · Töötab võrguühenduseta</div></header>
+<main>
+<section class="card"><h2>Ruumi mõõdud</h2>
+<div class="field"><label for="H">H – Ruumi kõrgus <small>Põrandast laeni</small></label><div class="inputrow"><input id="H" type="number" min="1" step="any" value="2929" inputmode="decimal"><span class="unit">mm</span></div></div>
+<div class="field"><label for="h1">h₁ – Kõrgus põrandast talani <small>Põrandast tala alumise servani</small></label><div class="inputrow"><input id="h1" type="number" min="0" step="any" value="2645" inputmode="decimal"><span class="unit">mm</span></div></div>
+<div class="field"><label for="D">D – Talade vahekaugus <small>Eenduvate osade välisgabariitide vaheline kaugus (vastavalt näidisele)</small></label><div class="inputrow"><input id="D" type="number" min="0" step="any" value="2638" inputmode="decimal"><span class="unit">mm</span></div></div>
+<div class="field"><label>Lame lagi</label><div class="radio"><label><input type="radio" name="flat" value="yes" checked> Jah</label><label><input type="radio" name="flat" value="no"> Ei</label></div></div>
+<div class="field"><label>Andurite tööraadiuse nõuded täidetud</label><div class="radio"><label><input type="radio" name="radius" value="yes" checked> Jah</label><label><input type="radio" name="radius" value="no"> Ei</label></div></div>
+<div class="actions"><button class="primary" id="copy" type="button">Kopeeri tulemus</button><button id="reset" type="button">Algväärtused</button><button id="print" type="button">Prindi / PDF</button></div><div id="status" aria-live="polite"></div></section>
+<section class="card"><h2>Arvutustulemus</h2><div id="error"></div><div class="metric"><span>h – Tala kõrgus</span><strong id="h" class="value">–</strong></div><div class="metric"><span>10% ruumi kõrgusest</span><strong id="ten" class="value">–</strong></div><div class="metric"><span>0,13 × (H − h)</span><strong id="t13">–</strong></div><div class="metric"><span>0,25 × (H − h)</span><strong id="t25">–</strong></div><div class="stage" id="beamStage" aria-live="polite"><strong>1. Kas talad mõjutavad andurite paigutust?</strong><p id="beamAnswer">–</p></div><div class="stage" id="placementStage" aria-live="polite"><strong>2. Andurite paigutus</strong><p id="placementAnswer">–</p></div><div id="result" class="result" aria-live="polite"></div><h2>Paigutuse tingimused</h2><div class="rules" id="rules"><div class="rule" id="r3">D &lt; 0,13 × (H − h) <span class="check"></span><div class="mini">Andur igas kolmandas sektsioonis</div></div><div class="rule" id="r2">0,13 × (H − h) ≤ D &lt; 0,25 × (H − h) <span class="check"></span><div class="mini">Andur igas teises sektsioonis</div></div><div class="rule" id="r1">D ≥ 0,25 × (H − h) <span class="check"></span><div class="mini">Andur igas sektsioonis</div></div></div></section>
+<section class="card full"><h2>Lae ja talade skeem</h2>
+<svg class="diagram" viewBox="0 0 680 330" role="img" aria-label="Ruumi läbilõige: lagi, põrand, talad ning mõõdud H, h1, h ja D">
+<line class="wall" x1="80" y1="48" x2="625" y2="48"/><line class="wall" x1="80" y1="280" x2="625" y2="280"/><rect class="beam" x="240" y="48" width="58" id="b1" height="35"/><rect class="beam" x="500" y="48" width="58" id="b2" height="35"/>
+<text x="570" y="28">Lagi</text><text x="565" y="309">Põrand</text>
+<line class="dim" x1="105" y1="48" x2="105" y2="280"/><path class="dim" d="M97 48h16 M97 280h16"/><text x="89" y="176" text-anchor="end" font-size="22">H</text>
+<line class="dim" id="h1line" x1="175" y1="83" x2="175" y2="280"/><path class="dim" id="h1ticks" d="M167 83h16 M167 280h16"/><text id="h1label" x="158" y="191" text-anchor="end">h₁</text>
+<line class="dim" id="hline" x1="203" y1="48" x2="203" y2="83"/><path class="dim" id="hticks" d="M197 48h12 M197 83h12"/><text x="188" y="67" id="hlabel" text-anchor="end">h</text>
+<line class="dim" x1="298" y1="112" x2="500" y2="112"/><path class="dim" d="M298 105v14 M500 105v14"/><text x="399" y="103" text-anchor="middle" font-size="20">D</text>
+</svg><p class="note">Skeem on illustratiivne, mitte mõõtkavas. H ja h₁ on kõrgused põrandast; h on tala sügavus. D on talade vaheline mõõt.</p></section>
+<section class="card full"><h2>Oluline</h2><div class="sub">See on ALGNE tabelipõhine versioon. Sektsioonide soovitus kuvatakse ka alla 10% talade korral ning seda ei tohi automaatselt paigaldusjuhisena kasutada. See on CEN/TS 54-14:2018 näitel põhinev abikalkulaator, mitte automaatne ATS-projekti vastavuskontroll. Andurite paigaldamisel tuleb järgida objekti projekti, kasutatavat standardit, andurite paigaldusjuhendit, tööraadiust ja muid piiranguid. Kui tala sügavus on alla 10% ruumi kõrgusest, käsitletakse seda antud kriteeriumi järgi tasase laena. Kui sügavus on üle 10%, rakenduvad sektsioonide reeglid. Täpselt 10% piirjuht nõuab eraldi kontrolli.</div></section>
+</main></div>
+<script>
+const $=id=>document.getElementById(id);const fmt=n=>Number.isFinite(n)?new Intl.NumberFormat('et-EE',{maximumFractionDigits:2}).format(n)+' mm':'–';let summary='';
+function calculate(){
+ const H=Number($('H').value), h1=Number($('h1').value), D=Number($('D').value);
+ const valid=['H','h1','D'].every(id=>$(id).value.trim()!=='')&&[H,h1,D].every(Number.isFinite)&&H>0&&h1>0&&h1<=H&&D>0;
+ const flat=document.querySelector('input[name="flat"]:checked').value==='yes';
+ const rad=document.querySelector('input[name="radius"]:checked').value==='yes';
+ for(const id of ['r3','r2','r1']){$(id).classList.remove('active');$(id).querySelector('.check').textContent='';}
+ $('rules').classList.add('inactive');
+ if(!valid){
+  for(const id of ['h','ten','t13','t25'])$(id).textContent='–';
+  $('beamAnswer').textContent='Sisesta õiged mõõdud.';
+  $('placementAnswer').textContent='Arvutust ei saa teha.';
+  $('result').className='result error';
+  $('result').textContent='Sisesta õiged mõõdud: H > 0, 0 < h₁ ≤ H ja D > 0.';
+  summary='';return;
+ }
+ const h=H-h1,t10=.1*H,t13=.13*h1,t25=.25*h1;
+ // Täpselt 10% on piiripealne: lähtestandard sõnastab alla / üle, mitte võrdse juhu.
+ const shallow=h<t10-1e-9, deep=h>t10+1e-9, borderline=!shallow&&!deep;
+ const rule=D<t13?3:D<t25?2:1;
+ const name={1:'Andur igas sektsioonis',2:'Andur igas teises sektsioonis',3:'Andur igas kolmandas sektsioonis'}[rule];
+ $('h').textContent=fmt(h);$('ten').textContent=fmt(t10);$('t13').textContent=fmt(t13);$('t25').textContent=fmt(t25);
+ const beamAnswer=$('beamAnswer'),placementAnswer=$('placementAnswer'),result=$('result');
+ const warnings=[];
+ if(!flat)warnings.push('Lagi ei ole lame – kontrolli tegelikku laekuju.');
+ if(!rad)warnings.push('Andurite tööraadiuse nõuded ei ole täidetud – paigutus vajab muutmist.');
+ // Algne tabelipõhine arvutus: sektsiooni tulemus kuvatakse alati.
+ beamAnswer.innerHTML=shallow?'<span class="flag">Ei.</span> h = '+fmt(h)+' < 10% H = '+fmt(t10)+'.':borderline?'<span class="flag">Piirjuht.</span> h = 10% H.':'<span class="flag">Jah.</span> h = '+fmt(h)+' > 10% H = '+fmt(t10)+'.';
+ placementAnswer.innerHTML='<span class="flag">'+name+'.</span> Lähtudes mõõdust D = '+fmt(D)+'.';
+ $('rules').classList.remove('inactive');$('r'+rule).classList.add('active');$('r'+rule).querySelector('.check').textContent='✓';
+ result.className='result warn';
+ result.innerHTML='<strong>'+name+'</strong><p>Algse tabeli arvutus. <b>Hoiatus:</b> kui h ≤ 10% H, ei ole sektsioonide reegli rakendamine selle kriteeriumi järgi põhjendatud. Kasuta kehtivat projekti ja standardit.</p>'+(warnings.length?'<p><b>Tähelepanu:</b> '+warnings.join(' ')+'</p>':'');
+ summary='ATS – Andurite paigutuse kalkulaator\nH: '+fmt(H)+'\nh₁: '+fmt(h1)+'\nD: '+fmt(D)+'\nh: '+fmt(h)+'\n10% H: '+fmt(t10)+'\n0,13(H-h): '+fmt(t13)+'\n0,25(H-h): '+fmt(t25)+'\nLame lagi: '+(flat?'Jah':'Ei')+'\nTööraadius: '+(rad?'Jah':'Ei')+'\nTalade mõju: '+(shallow?'Ei':borderline?'Piiripealne':'Jah')+'\nPaigutus: '+(shallow?'Tasase lae tavareeglid':borderline?'Vajalik kontroll':name)+(warnings.length?'\nHoiatused: '+warnings.join(' '):'');
+ const beamPx=Math.max(12,Math.min(120,h/H*232));for(const id of ['b1','b2'])$(id).setAttribute('height',beamPx);const y=48+beamPx;$('h1line').setAttribute('y1',y);$('h1ticks').setAttribute('d',`M167 ${y}h16 M167 280h16`);$('h1label').setAttribute('y',(y+280)/2);$('hline').setAttribute('y2',y);$('hticks').setAttribute('d',`M197 48h12 M197 ${y}h12`);$('hlabel').setAttribute('y',Math.max(40,(48+y)/2));
+}
+for(const id of ['H','h1','D'])$(id).addEventListener('input',calculate);document.querySelectorAll('input[type="radio"]').forEach(el=>el.addEventListener('change',calculate));$('reset').addEventListener('click',()=>{$('H').value=2929;$('h1').value=2645;$('D').value=2638;document.querySelector('input[name="flat"][value="yes"]').checked=true;document.querySelector('input[name="radius"][value="yes"]').checked=true;calculate();$('status').textContent='';});$('copy').addEventListener('click',async()=>{if(!summary)return;try{await navigator.clipboard.writeText(summary);$('status').textContent='Tulemus kopeeritud.';}catch(e){const ta=document.createElement('textarea');ta.value=summary;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();$('status').textContent='Tulemus kopeeritud.';}});$('print').addEventListener('click',()=>window.print());calculate();
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
